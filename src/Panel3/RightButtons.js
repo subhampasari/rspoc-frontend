@@ -7,22 +7,33 @@ class RightButtons extends Component {
             textAlign: 'justify'
         }
         let marginStyle = {
-            margin: '1rem'
+            marginRight: '20px'
+        }
+        let floatRight = {
+            float: 'right',
+            marginLeft: '1rem'
         }
         return (
             <div style={style}>
-                <Button variant="info">Preview</Button>
+                {/* <Button variant="info">Preview</Button> */}
 
                 <Form.Group controlId="PreviewArea">
                     <Form.Label>Preview</Form.Label>
-                    <Form.Control as="textarea" rows="3" />
+                    <Form.Control as="textarea" rows="4" readOnly/>
                 </Form.Group>
 
-                <Button variant="success" type="submit">
+                <div>
+                <Button variant="success" type="submit" style={floatRight}>
                     Submit
                 </Button>
 
-                <Button variant="secondary" type="submit"  style={marginStyle}>
+                <Button variant="info" type="submit" style={floatRight}>
+                    Preview
+                </Button>
+
+                </div>
+
+                <Button variant="secondary" type="submit">
                     Cancel
                 </Button>
             </div>

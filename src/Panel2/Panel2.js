@@ -7,9 +7,10 @@ import Right from './Right';
 class Panel2 extends Component {
     render() {
         let style = {
-            border: '1px solid black',
+            border: '1px solid gray',
             padding: '2rem',
-            margin: '0rem'
+            margin: '0rem',
+            borderRadius: '1rem'
         };
         return (
             <div>

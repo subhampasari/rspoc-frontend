@@ -9,9 +9,10 @@ import Create from './Create';
 class Panel1 extends Component {
     render() {
         let style = {
-                border: '1px solid black',
+                border: '1px solid gray',
                 padding: '2rem',
-                margin: '0rem'
+                margin: '0rem',
+                borderRadius: '1rem'
         };
         let headStyle = {
             backgroundColor: '#E8E8E8',

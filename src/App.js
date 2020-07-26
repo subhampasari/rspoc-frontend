@@ -18,9 +18,9 @@ class App extends Component {
         <Header />
         <Panel1 />
         <br></br>
-        <Panel2 />
-        <br></br>
         <Panel3 />
+        <br></br>
+        <Panel2 />
         <br></br>
         <Panel4 />
 

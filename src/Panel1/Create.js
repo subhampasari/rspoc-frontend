@@ -6,6 +6,9 @@ class Create extends Component {
         let style = {
             textAlign: 'justify'
         };
+        let floatRight = {
+            float: 'right'
+        }
         return (
             <div>
                 <h5>Create Experience, Product or Feature </h5>
@@ -25,7 +28,7 @@ class Create extends Component {
                         <Form.Control type="text" placeholder="Enter a value" />
                     </Form.Group>
 
-                    <Button variant="primary" type="submit">
+                    <Button variant="success" type="submit" style={floatRight}>
                         Submit
                     </Button>
                 </Form>

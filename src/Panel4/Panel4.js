@@ -4,12 +4,13 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Left from './Left';
 import Right from './Right';
 
-class Panel2 extends Component {
+class Panel4 extends Component {
     render() {
         let style = {
-            border: '1px solid black',
+            border: '1px solid gray',
             padding: '2rem',
-            margin: '0rem'
+            margin: '0rem',
+            borderRadius: '1rem'
         };
         return (
             <div>
@@ -24,4 +25,4 @@ class Panel2 extends Component {
     }
 }
 
-export default Panel2;
+export default Panel4;
