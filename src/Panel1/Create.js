@@ -11,7 +11,7 @@ class Create extends Component {
         }
         return (
             <div>
-                <h5>Create Experience, Product or Feature </h5>
+                <h5>Create Experience, Product and Feature </h5>
 
                 <Form style={style}>
                     <Form.Group controlId="CreateType">

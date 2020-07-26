@@ -5,7 +5,11 @@ class LeftFields extends Component {
     render() {
         let style = {
             textAlign: 'justify'
-        }
+        };
+        let floatRight = {
+            float: 'right',
+            // backgroundColor: '#4bf542'
+        };
         return (
             <div style={style}>
                 <Form>
@@ -14,6 +18,7 @@ class LeftFields extends Component {
                         {[ 'radio'].map((type) => (
                             <div key={`custom-inline-${type}`} className="mb-3">
                             <Form.Check
+                                name="radio"
                                 custom
                                 inline
                                 label="Delete"
@@ -21,8 +26,10 @@ class LeftFields extends Component {
                                 id={`custom-inline-${type}-1`}
                             />
                             <Form.Check
+                                name="radio"
                                 custom
                                 inline
+                                style={floatRight}
                                 label="Add/Update"
                                 type={type}
                                 id={`custom-inline-${type}-2`}
