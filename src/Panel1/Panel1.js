@@ -7,6 +7,11 @@ import Existing from './Existing';
 import Create from './Create';
 
 class Panel1 extends Component {
+    constructor(props)
+    {
+        super(props);
+        console.log(this.props);
+    }
     render() {
         let style = {
                 border: '1px solid gray',

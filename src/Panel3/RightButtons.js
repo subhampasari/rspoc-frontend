@@ -17,9 +17,17 @@ class RightButtons extends Component {
             <div style={style}>
                 {/* <Button variant="info">Preview</Button> */}
 
+                <p>Tag ref-markers to Experience, Product and Feature. Add/Update gives you the option to add or rectify incorrectly tagged markers
+                    <br></br><br></br>
+                    Delete will undo the tagging of the ref-markers. It will not delete the ref-marker.
+                    <br></br><br></br>
+                    Once ref-markers are tagged, it will take 24 hours to propagate into the tableau dashboard with updated data from the
+                    launch date of the ref-marker.
+                </p>
+
                 <Form.Group controlId="PreviewArea">
                     <Form.Label>Preview</Form.Label>
-                    <Form.Control as="textarea" rows="4" readOnly/>
+                    <Form.Control as="textarea" rows="5" readOnly/>
                 </Form.Group>
 
                 <div>
@@ -27,15 +35,13 @@ class RightButtons extends Component {
                     Submit
                 </Button>
 
-                <Button variant="info" type="submit" style={floatRight}>
-                    Preview
+                <Button variant="secondary" type="submit" style={floatRight}>
+                    Cancel
                 </Button>
 
                 </div>
 
-                <Button variant="secondary" type="submit">
-                    Cancel
-                </Button>
+                
             </div>
         );
     }

@@ -13,6 +13,33 @@ class Existing extends Component {
         }
     }
 
+    componentDidMount() {
+        let exp=[], prod=[], feat=[];
+        fetch('http://localhost:8080/getEntities')
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    result.forEach((value) => {
+                        if(value.type === 'Experience')
+                            exp.push(value);
+                        else if(value.type === 'Product')
+                            prod.push(value);
+                        else if(value.type === 'Feature')
+                            feat.push(value);
+                        
+                    });
+                    this.setState({
+                        experiences: exp,
+                        products: prod,
+                        features: feat
+                    });
+                },
+                (error) => {
+                    console.log(error);
+                }
+            )
+    }
+
     render() {
         let style = {
             textAlign: 'justify'
@@ -25,7 +52,7 @@ class Existing extends Component {
                     <Form.Group controlId="ExistingExperience">
                         <Form.Label>Existing Experience</Form.Label>
                         <Form.Control as="select" custom>
-                            {this.state.experiences.map((experience) => <option>{experience}</option>)};
+                            {this.state.experiences.map((experience) => <option key={experience.value}>{experience.value}</option>)};
                         </Form.Control>
                     </Form.Group>
                 </Form>
@@ -34,7 +61,7 @@ class Existing extends Component {
                     <Form.Group controlId="ExistingProduct">
                         <Form.Label>Existing Product</Form.Label>
                         <Form.Control as="select" custom>
-                            {this.state.products.map((product) => <option>{product}</option>)};
+                            {this.state.products.map((product) => <option key={product.value}>{product.value}</option>)};
                         </Form.Control>
                     </Form.Group>
                 </Form>
@@ -43,7 +70,7 @@ class Existing extends Component {
                     <Form.Group controlId="ExistingFeature">
                         <Form.Label>Existing Feature</Form.Label>
                         <Form.Control as="select" custom>
-                            {this.state.features.map((feature) => <option>{feature}</option>)};
+                            {this.state.features.map((feature) => <option key={feature.value}>{feature.value}</option>)};
                         </Form.Control>
                     </Form.Group>
                 </Form>

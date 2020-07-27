@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 
 class LeftFields extends Component {
     render() {
@@ -44,13 +44,32 @@ class LeftFields extends Component {
                     </Form.Group>
 
                     <Form.Group controlId="ActionAssign">
-                        <Form.Label>Assign Ref-marker</Form.Label>
+                        <Form.Label>Experience</Form.Label>
                         <Form.Control as="select" custom>
-                            <option>Experience</option>
-                            <option>Product</option>
-                            <option>Feature</option>
+                            <option>Experience 1</option>
+                            <option>Experience 2</option>
                         </Form.Control>
                     </Form.Group>
+
+                    <Form.Group controlId="ActionAssign">
+                        <Form.Label>Product</Form.Label>
+                        <Form.Control as="select" custom>
+                            <option>Product 1</option>
+                            <option>Product 2</option>
+                        </Form.Control>
+                    </Form.Group>
+
+                    <Form.Group controlId="ActionAssign">
+                        <Form.Label>Feature</Form.Label>
+                        <Form.Control as="select" custom>
+                            <option>Feature 1</option>
+                            <option>Feature 2</option>
+                        </Form.Control>
+                    </Form.Group>
+
+                    <Button variant="info" type="submit" style={floatRight}>
+                        Preview {'>>>'}
+                    </Button>
                 </Form>
             </div>
         );
