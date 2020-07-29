@@ -48,7 +48,7 @@ class Panel3 extends Component {
 
             fetch('http://localhost:8080/getRefMarker?refName='+refName, requestOptions)
                 .then(response => response.json())
-                .then(response => {
+                .then((response) => {
                     if(response.length === 0)
                     {
                         notify.show('This ref-marker does not exist in the database!', "error");
@@ -68,7 +68,11 @@ class Panel3 extends Component {
                         previewRefName: refName,
                         action: action
                     });
-                });
+                },
+                (error) => {
+                    notify.show('Error occurred while fetching the ref-marker! Please try again... ', "error");
+                }
+                );
         }
         else {
             this.setState({

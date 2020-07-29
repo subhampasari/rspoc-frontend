@@ -35,7 +35,7 @@ class Create extends Component {
                 this.setState({ value: ""})
             },
             (error) => {
-                notify.show('Error occurred while creating the entity! Please try again... ', "error");
+                notify.show('Error occurred while creating the entity! Please try again... '+error, "error");
             });
     }
 

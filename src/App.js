@@ -30,6 +30,7 @@ class App extends Component {
 								});
 						},
 						(error) => {
+								notify.show('Error occurred while creating the entity! Please try again...'+error, "error");
 								console.log(error);
 						}
 				)
