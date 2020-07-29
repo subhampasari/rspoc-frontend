@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { connect } from 'react-redux';
 
 class LeftFields extends Component {
     render() {
@@ -8,62 +9,56 @@ class LeftFields extends Component {
         };
         let floatRight = {
             float: 'right',
-            // backgroundColor: '#4bf542'
         };
+        let floatLeft = {
+            float: 'left',
+        };
+        let marginRight = {
+            marginRight: '1rem'
+        }
         return (
             <div style={style}>
-                <Form>
-                    {/* <Form.Group controlId="ActionRadio"> */}
+                <Form onSubmit={this.props.clickPreviewButton}>
                         <Form.Label>Action</Form.Label>
-                        {[ 'radio'].map((type) => (
-                            <div key={`custom-inline-${type}`} className="mb-3">
-                            <Form.Check
-                                name="radio"
-                                custom
-                                inline
-                                label="Delete"
-                                type={type}
-                                id={`custom-inline-${type}-1`}
-                            />
-                            <Form.Check
-                                name="radio"
-                                custom
-                                inline
-                                style={floatRight}
-                                label="Add/Update"
-                                type={type}
-                                id={`custom-inline-${type}-2`}
-                            />
+                        <br></br>
+                        <div>
+                            <div style={floatLeft}>
+                                <input onChange={this.props.clickRadio} htmlFor="delete" style={marginRight} type="radio"
+                                 value="delete" name="action" checked={this.props.action==='delete'?true:false} />
+                                <label htmlFor="delete">Delete</label> 
                             </div>
-                        ))}
-                    {/* </Form.Group> */}
+                            <div style={floatRight}>
+                                <label style={marginRight} htmlFor="add_update">Add/Update</label> 
+                                <input htmlFor="add_update" onChange={this.props.clickRadio} type="radio" value="add_update" name="action"
+                                checked={this.props.action==='add_update'?true:false} />
+                                
+                            </div>
+                        </div>
+                        <br></br><br></br>
 
                     <Form.Group controlId="ActionRef">
                         <Form.Label>Enter Ref-marker Name</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Ref-marker Name" />
+                        <Form.Control type="text" placeholder="Enter Ref-marker Name" required />
                     </Form.Group>
 
-                    <Form.Group controlId="ActionAssign">
+                    <Form.Group controlId="AssignExperience">
                         <Form.Label>Experience</Form.Label>
-                        <Form.Control as="select" custom>
-                            <option>Experience 1</option>
-                            <option>Experience 2</option>
+                        <Form.Control as="select" custom required disabled={this.props.action === 'delete' ? true : false}>
+                            {this.props.experiences.map((experience) => <option key={experience.timestamp}>{experience.value}</option>)};
                         </Form.Control>
                     </Form.Group>
 
-                    <Form.Group controlId="ActionAssign">
+                    <Form.Group controlId="AssignProduct">
                         <Form.Label>Product</Form.Label>
-                        <Form.Control as="select" custom>
-                            <option>Product 1</option>
-                            <option>Product 2</option>
+                        <Form.Control as="select" custom required disabled={this.props.action === 'delete' ? true : false}>
+                            {this.props.products.map((product) => <option key={product.timestamp}>{product.value}</option>)};
                         </Form.Control>
                     </Form.Group>
 
-                    <Form.Group controlId="ActionAssign">
+                    <Form.Group controlId="AssignFeature">
                         <Form.Label>Feature</Form.Label>
-                        <Form.Control as="select" custom>
-                            <option>Feature 1</option>
-                            <option>Feature 2</option>
+                        <Form.Control as="select" custom required disabled={this.props.action === 'delete' ? true : false}>
+                            {this.props.features.map((feature) => <option key={feature.timestamp}>{feature.value}</option>)};
                         </Form.Control>
                     </Form.Group>
 
@@ -76,4 +71,14 @@ class LeftFields extends Component {
     }
 }
 
-export default LeftFields;
+
+const mapStateToProps = (state) => {
+    return {
+        experiences: state.experiences,
+        products: state.products,
+        features: state.features
+    }
+}
+
+
+export default connect(mapStateToProps)(LeftFields);

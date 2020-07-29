@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { notify } from 'react-notify-toast';
 
 class Create extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-
+            value: ""
         };
     }
 
-    createNew(event) {
+    changeValue = (e) => {
+        this.setState({
+          value: e.target.value
+        });
+    }
+
+    createNew = (event) => {
         event.preventDefault();
         let type = event.target.type.value;
-        let value = event.target.value.value;
+        let value = this.state.value;
 
         const requestOptions = {
             method: 'POST',
@@ -22,7 +29,14 @@ class Create extends Component {
         };
 
         fetch('http://localhost:8080/api/v1/createNewEntity', requestOptions)
-        .then(response => console.log(response));
+        .then(response => console.log(response))
+        .then((response) => {
+                notify.show('Submitted Successfully! Please refresh the page to view the added item in the list', "success");
+                this.setState({ value: ""})
+            },
+            (error) => {
+                notify.show('Error occurred while creating the entity! Please try again... ', "error");
+            });
     }
 
     render() {
@@ -41,7 +55,7 @@ class Create extends Component {
                         from ref-marker, however new products and features are being created.
                     </p>
                 </div>
-                <Form style={style} onSubmit={this.createNew}>
+                <Form ref={form => this.form = form} style={style} onSubmit={this.createNew}>
                     <Form.Group controlId="CreateType">
                         <Form.Label>Select Type</Form.Label>
                         <Form.Control as="select" custom name={'type'}>
@@ -53,7 +67,7 @@ class Create extends Component {
 
                     <Form.Group controlId="CreateValue">
                         <Form.Label>Enter a value</Form.Label>
-                        <Form.Control type="text" name={'value'} placeholder="Enter a value" required/>
+                        <Form.Control type="text" onChange={this.changeValue} name={'value'} value={this.state.value} placeholder="Enter a value" required/>
                     </Form.Group>
 
                     <Button variant="success" type="submit" style={floatRight}>
