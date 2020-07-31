@@ -20,12 +20,12 @@ function Header() {
                 Self Service for tagging ref-markers
             </div>
 
-            <div style={styleJustify}>
+            {/* <div style={styleJustify}>
                 <p>
                     This dashboard enables you to view, create and assign ref-markers to appropriate experiences, product and features.
                     You have the ability to create Experiences, Products and Features. 
                 </p>
-            </div>
+            </div> */}
         </div>
     );
 }

@@ -46,7 +46,7 @@ class Panel3 extends Component {
                 headers: { 'Content-Type': 'application/json' },
             };
 
-            fetch('http://localhost:8080/getRefMarker?refName='+refName, requestOptions)
+            fetch(process.env.REACT_APP_API_END_POINT + '/getRefMarker?refName='+refName, requestOptions)
                 .then(response => response.json())
                 .then((response) => {
                     if(response.length === 0)
@@ -112,7 +112,7 @@ class Panel3 extends Component {
                     body: JSON.stringify({refName:refName})
                 };
 
-                fetch('http://localhost:8080/api/v1/deleteRefMarker?refName='+refName, requestOptions)
+                fetch(process.env.REACT_APP_API_END_POINT + '/api/v1/deleteRefMarker?refName='+refName, requestOptions)
                 .then(response => response.json())
                 .then((response) => {
                         notify.show('The ref-marker was deleted successfully!', "success");
@@ -133,7 +133,7 @@ class Panel3 extends Component {
                     body: JSON.stringify({ refName: refName, experience: experience, product: product, feature:feature })
                 };
 
-                fetch('http://localhost:8080/api/v1/createNewRefMarker', requestOptions)
+                fetch(process.env.REACT_APP_API_END_POINT + '/api/v1/createNewRefMarker', requestOptions)
                 .then(response => console.log(response))
                 .then(
                     (response) => {
@@ -156,13 +156,14 @@ class Panel3 extends Component {
             borderRadius: '1rem'
         };
         let headStyle = {
-            backgroundColor: '#E8E8E8',
+            // backgroundColor: '#E8E8E8',
+            margin: "1rem"
         }
         return (
             <div>
                 <Container>
                     <div style={headStyle}>
-                        Ref-markers to Experiences, Products and Features
+                        Assign Ref-markers to Experiences, Products and Features
                     </div>
                     <Row>
                         <Col style={style}><LeftFields showingPreviewData={this.state.showingPreviewData} 

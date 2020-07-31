@@ -10,7 +10,9 @@ import Notifications, {notify} from 'react-notify-toast';
 
 class App extends Component {
 	componentDidMount() {
-		fetch('http://localhost:8080/getEntities')
+		let url = process.env.REACT_APP_API_END_POINT + '/getEntities';
+		console.log(url);
+		fetch(url)
 				.then(res => res.json())
 				.then(
 						(result) => {
@@ -30,7 +32,7 @@ class App extends Component {
 								});
 						},
 						(error) => {
-								notify.show('Error occurred while creating the entity! Please try again...'+error, "error");
+								notify.show('Error occurred while fetching data! Please try again...'+error, "error");
 								console.log(error);
 						}
 				)

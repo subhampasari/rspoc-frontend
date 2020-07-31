@@ -28,7 +28,7 @@ class Create extends Component {
             body: JSON.stringify({ type: type, value: value })
         };
 
-        fetch('http://localhost:8080/api/v1/createNewEntity', requestOptions)
+        fetch(process.env.REACT_APP_API_END_POINT + '/api/v1/createNewEntity', requestOptions)
         .then(response => console.log(response))
         .then((response) => {
                 notify.show('Submitted Successfully! Please refresh the page to view the added item in the list', "success");
@@ -51,8 +51,8 @@ class Create extends Component {
                 <h5>Create Experience, Product and Feature </h5>
                 <div style={style}>
                     <p>
-                        We have standardized the naming convention of ref-markers by which we can automate reading of experience
-                        from ref-marker, however new products and features are being created.
+                    This dashboard enables you to view, create and assign ref-markers to appropriate experiences, product and features.
+                    You have the ability to create Experiences, Products and Features. 
                     </p>
                 </div>
                 <Form ref={form => this.form = form} style={style} onSubmit={this.createNew}>

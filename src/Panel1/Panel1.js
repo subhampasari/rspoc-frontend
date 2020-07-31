@@ -15,7 +15,8 @@ class Panel1 extends Component {
                 borderRadius: '1rem'
         };
         let headStyle = {
-            backgroundColor: '#E8E8E8',
+            margin: "1rem"
+            // backgroundColor: '#E8E8E8',
         }
         return (
             <div>
