@@ -16,7 +16,6 @@ class Panel1 extends Component {
         };
         let headStyle = {
             margin: "1rem"
-            // backgroundColor: '#E8E8E8',
         }
         return (
             <div>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { notify } from 'react-notify-toast';
 
+// Component for creating the experiences, products and features
 class Create extends Component {
 
     constructor(props) {
@@ -17,7 +18,7 @@ class Create extends Component {
         });
     }
 
-    createNew = (event) => {
+    createNew = (event) => {    // function to create a new entity
         event.preventDefault();
         let type = event.target.type.value;
         let value = this.state.value;

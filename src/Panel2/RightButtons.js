@@ -20,7 +20,6 @@ class RightButtons extends Component {
                 "\nAction : " + this.props.action;
         return (
             <div style={style}>
-                {/* <p>{this.props.showingPreviewData ? 'True' : 'False'}</p> */}
                 <p>Tag ref-markers to Experience, Product and Feature. Add/Update gives you the option to add or rectify incorrectly tagged markers
                     <br></br><br></br>
                     Delete will undo the tagging of the ref-markers. It will not delete the ref-marker.

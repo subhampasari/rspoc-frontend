@@ -3,13 +3,15 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Header';
 import Panel1 from './Panel1/Panel1';
-import Panel3 from './Panel3/Panel3';
+import Panel2 from './Panel2/Panel2';
 import { connect } from 'react-redux';
 // import { ToastContainer, toast } from 'react-toastify';
 import Notifications, {notify} from 'react-notify-toast';
 
 class App extends Component {
 	componentDidMount() {
+
+		// loads data into redux stores
 		let url = process.env.REACT_APP_API_END_POINT + '/getEntities';
 		console.log(url);
 		fetch(url)
@@ -45,7 +47,7 @@ class App extends Component {
 				<Header />
 				<Panel1 />
 				<br></br>
-				<Panel3 />
+				<Panel2 />
 				<br></br><br></br>
 			</div>
 		);

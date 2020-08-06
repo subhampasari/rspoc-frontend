@@ -43,7 +43,7 @@ class Existing extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state) => {    // for mapping state variable to redux store
     return {
         experiences: state.experiences,
         products: state.products,
