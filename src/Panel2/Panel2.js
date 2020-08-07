@@ -10,7 +10,7 @@ class Panel2 extends Component {
         super(props);
         this.state = {
             showingPreviewData: false,
-            action: "delete",
+            action: "add_update",
             previewExperience : "",
             previewProduct: "",
             previewFeature: "",
@@ -116,7 +116,7 @@ class Panel2 extends Component {
                 fetch(process.env.REACT_APP_API_END_POINT + '/api/v1/deleteRefMarker?refName='+refName, requestOptions)
                 .then(response => response.json())
                 .then((response) => {
-                        notify.show('The ref-marker was deleted successfully!', "success");
+                        notify.show('The ref-marker association has been deleted successfully!', "success");
                     },
                     (error) => {
                         notify.show('Error deleting ref-marker! Please try again...', "error");
@@ -138,10 +138,10 @@ class Panel2 extends Component {
                 .then(response => console.log(response))
                 .then(
                     (response) => {
-                        notify.show('The ref-marker was created successfully!', "success");
+                        notify.show('The ref-marker has been updated successfully!', "success");
                     },
                     (error) => {
-                        notify.show('Error creating ref-marker! Please try again...', "error");
+                        notify.show('Error updating ref-marker! Please try again...', "error");
                     });
                 break;
             default: break;
